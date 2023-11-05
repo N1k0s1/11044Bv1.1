@@ -83,11 +83,11 @@ void usercontrol(void) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
-  if (Controller1.ButtonA.pressing())
+  if (Controller1.ButtonX.pressing())
   {
   wings.open();
   }
-  else if (Controller1.ButtonX.pressing())
+  else if (Controller1.ButtonB.pressing())
   {
   wings.close();
   }
