@@ -85,11 +85,13 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
   if (Controller1.ButtonX.pressing())
   {
-  wings.open();
+  wings1.open();
+  wings2.open();
   }
   else if (Controller1.ButtonB.pressing())
   {
-  wings.close();
+  wings1.close();
+  wings2.close();
   }
 
     // ........................................................................

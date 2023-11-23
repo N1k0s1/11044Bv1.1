@@ -16,11 +16,14 @@ motor rightMotorB = motor(PORT4, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 295, 40, mm, 1);
 motor intakes = motor(PORT5, ratio18_1, false);
+motor flywheel = motor(PORT8, ratio18_1, false);
 controller Controller1 = controller(primary);
 motor cataMotorA = motor(PORT6, ratio36_1, false);
 motor cataMotorB = motor(PORT7, ratio36_1, true);
 motor_group cata = motor_group(cataMotorA, cataMotorB);
-pneumatics wings = pneumatics( Brain.ThreeWirePort.A);
+
+pneumatics wings1 = pneumatics( Brain.ThreeWirePort.A);
+pneumatics wings2 = pneumatics( Brain.ThreeWirePort.B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
