@@ -16,7 +16,7 @@ motor rightMotorB = motor(PORT4, ratio18_1, true);
 motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 295, 40, mm, 1);
 motor intakes = motor(PORT5, ratio18_1, false);
-motor flywheel = motor(PORT8, ratio18_1, false);
+motor flywheel = motor(PORT8, ratio6_1, false);
 controller Controller1 = controller(primary);
 motor cataMotorA = motor(PORT6, ratio36_1, false);
 motor cataMotorB = motor(PORT7, ratio36_1, true);
@@ -97,15 +97,15 @@ int rc_auto_loop_function_Controller1() {
         // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
         Controller1LeftShoulderControlMotorsStopped = true;
       }
-      // check the ButtonR1/ButtonR2 status to control cata
+      // check the ButtonR1/ButtonR2 status to control flywheel/cata
       if (Controller1.ButtonR1.pressing()) {
-        cata.spin(forward);
+        flywheel.spin(forward);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonR2.pressing()) {
-        cata.spin(reverse);
+        flywheel.spin(reverse);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (!Controller1RightShoulderControlMotorsStopped) {
-        cata.stop();
+        flywheel.stop();
         // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
         Controller1RightShoulderControlMotorsStopped = true;
         
