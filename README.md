@@ -16,4 +16,7 @@ Auton *Needs improvement*
   
 **What's Not Working (WIP)**  
 Need to improve auton  
-Need to make flywheel torque
+Need to make flywheel torque  
+  
+**What is Disabled**  
+Catapult is currently not added to any buttons as the flywheel is better at the moment. To fix this flywheel needs to be changed to cata in robot-config.h  
