@@ -3,10 +3,17 @@
 Drivetrain, *Green Motors* - 1/2 *Left* 3/4 *Right*  
 Intakes, *Green Motors* - 5  
 Catapult, *Red Motors* - 6/7  
-Flywheel, *Blue Motors* - 8
+Flywheel, *Blue Motors* - 8  
 Wing 1 - ThreeWirePort.A  
 Wing 2 - ThreeWirePort.B  
-  
+
+**Controller Inputs**  
+Flywheel - X, B  
+Pneumatics Wing 1 - L1, L2  
+Pneumatics Wing 2 - R1, R2  
+Intakes - Up, Down  
+DriveTrain - Joysticks  
+
 **What's Working**  
 Pneumatics  
 Intakes  
