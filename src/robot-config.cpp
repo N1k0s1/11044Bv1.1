@@ -84,11 +84,11 @@ int rc_auto_loop_function_Controller1() {
         RightDriveSmart.spin(forward);
       }
       // check the ButtonL1/ButtonL2 status to control intakes
-      if (Controller1.ButtonL1.pressing()) {
+      if (Controller1.ButtonUp.pressing()) {
         intakes.setVelocity(-100, pct);
         intakes.spin(forward);
         Controller1LeftShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonL2.pressing()) {
+      } else if (Controller1.ButtonDown.pressing()) {
         intakes.setVelocity(100, pct);
         intakes.spin(forward);
         Controller1LeftShoulderControlMotorsStopped = false;
@@ -98,11 +98,13 @@ int rc_auto_loop_function_Controller1() {
         Controller1LeftShoulderControlMotorsStopped = true;
       }
       // check the ButtonR1/ButtonR2 status to control flywheel/cata
-      if (Controller1.ButtonR1.pressing()) {
+      if (Controller1.ButtonX.pressing()) {
+        flywheel.setVelocity(-100, pct);
         flywheel.spin(forward);
         Controller1RightShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonR2.pressing()) {
-        flywheel.spin(reverse);
+      } else if (Controller1.ButtonB.pressing()) {
+        flywheel.setVelocity(-100, pct);
+        flywheel.spin(forward);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (!Controller1RightShoulderControlMotorsStopped) {
         flywheel.stop();
