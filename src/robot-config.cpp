@@ -90,7 +90,7 @@ int rc_auto_loop_function_Controller1() {
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonDown.pressing()) {
         intakes.setVelocity(100, pct);
-        intakes.spin(forward);
+        intakes.spin(reverse);
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (!Controller1LeftShoulderControlMotorsStopped) {
         intakes.stop();
