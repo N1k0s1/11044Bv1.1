@@ -86,11 +86,11 @@ int rc_auto_loop_function_Controller1() {
       // check the ButtonL1/ButtonL2 status to control intakes
       if (Controller1.ButtonUp.pressing()) {
         intakes.setVelocity(-100, pct);
-        intakes.spin(forward);
+        intakes.spin(reverse);
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonDown.pressing()) {
         intakes.setVelocity(100, pct);
-        intakes.spin(reverse);
+        intakes.spin(forward);
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (!Controller1LeftShoulderControlMotorsStopped) {
         intakes.stop();
@@ -100,10 +100,10 @@ int rc_auto_loop_function_Controller1() {
       // check the ButtonR1/ButtonR2 status to control flywheel/cata
       if (Controller1.ButtonX.pressing()) {
         flywheel.setVelocity(-100, pct);
-        flywheel.spin(forward);
+        flywheel.spin(reverse);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonB.pressing()) {
-        flywheel.setVelocity(-100, pct);
+        flywheel.setVelocity(100, pct);
         flywheel.spin(forward);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (!Controller1RightShoulderControlMotorsStopped) {
