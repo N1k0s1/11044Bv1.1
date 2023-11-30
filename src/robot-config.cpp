@@ -22,8 +22,8 @@ motor cataMotorA = motor(PORT6, ratio36_1, false);
 motor cataMotorB = motor(PORT7, ratio36_1, true);
 motor_group cata = motor_group(cataMotorA, cataMotorB);
 
-pneumatics wings1 = pneumatics( Brain.ThreeWirePort.A);
-pneumatics wings2 = pneumatics( Brain.ThreeWirePort.B);
+pneumatics wings1 = pneumatics(Brain.ThreeWirePort.A);
+pneumatics wings2 = pneumatics(Brain.ThreeWirePort.B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
@@ -85,26 +85,46 @@ int rc_auto_loop_function_Controller1() {
       }
       // check the ButtonL1/ButtonL2 status to control intakes
       if (Controller1.ButtonUp.pressing()) {
-        intakes.setVelocity(-100, pct);
-        intakes.spin(reverse);
+        intakes.spin(forward);
+        intakes.setVelocity(100, pct);
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonDown.pressing()) {
-        intakes.setVelocity(100, pct);
-        intakes.spin(forward);
+        intakes.spin(reverse);
+        intakes.setVelocity(-100, pct);
         Controller1LeftShoulderControlMotorsStopped = false;
       } else if (!Controller1LeftShoulderControlMotorsStopped) {
         intakes.stop();
         // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
         Controller1LeftShoulderControlMotorsStopped = true;
       }
+
+      if (Controller1.ButtonX.pressing())
+      {
+        wings1.open();
+        wings2.open();
+      }
+      else if (Controller1.ButtonL1.pressing())
+      {
+        wings2.open();
+      }
+            else if (Controller1.ButtonL2.pressing())
+      {
+        wings2.close();
+      }      else if (Controller1.ButtonR1.pressing())
+      {
+        wings1.open();
+      }      else if (Controller1.ButtonR2.pressing())
+      {
+        wings1.close();
+      }
       // check the ButtonR1/ButtonR2 status to control flywheel/cata
       if (Controller1.ButtonX.pressing()) {
-        flywheel.setVelocity(-100, pct);
-        flywheel.spin(reverse);
+        flywheel.spin(forward);
+        flywheel.setVelocity(100, pct);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (Controller1.ButtonB.pressing()) {
-        flywheel.setVelocity(100, pct);
-        flywheel.spin(forward);
+        flywheel.spin(reverse);
+        flywheel.setVelocity(-100, pct);
         Controller1RightShoulderControlMotorsStopped = false;
       } else if (!Controller1RightShoulderControlMotorsStopped) {
         flywheel.stop();
